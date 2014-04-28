@@ -1,0 +1,471 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Planvas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <style type="text/css">
+            body {
+                margin: 0 auto;
+                padding: 0;
+                width: 1280px;
+                font-family: 'Myriad Pro', sans-serif;
+            }
+
+            a.nav {
+                display: inline-block;
+                width: 4em;
+                text-decoration: none;
+                color: #666666;
+                padding: 0.2em 0.2em;
+                text-align: center;
+                border-bottom: 1px solid transparent;
+            }
+
+            a.nav:hover {
+                border-bottom: 1px solid #666666;
+            }
+
+            a.service-logo {
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-image: url('Protokuvat/Palasina/logo_uus.png');
+                background-size: 120px 40px;
+                margin-top: 0.4em;
+                width: 120px;
+                height: 40px;
+                text-decoration: none;
+                float: left;
+            }
+
+            a.user-icon {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                top: 0.2em;
+                background-image: url('Protokuvat/Palasina/user-icon.png');
+                background-size: 3em 3em;
+                width: 3em;
+                height: 3em;
+                border-radius: 1.5em;
+                text-decoration: none;
+            }
+
+            a.link-to-plan {
+                display: block;
+                position: absolute;
+                width: 358px;
+                height: 197px;
+                top: 60px;
+                left: 659px;
+            }
+
+            a.link-to-plan:hover {
+                box-shadow: 0 0 6px 3px #666666;
+                border-radius: 6px;
+            }
+
+            a.link-to-addlist {
+                display: block;
+                position: absolute;
+                width: 73px;
+                height: 72px;
+                top: 20px;
+                left: 172px;
+            }
+
+            a.link-to-addlist:hover {
+                box-shadow: 0 0 6px 3px #666666;
+                border-radius: 4px;
+            }
+
+            a.link-to-addimage {
+                display: block;
+                position: absolute;
+                width: 73px;
+                height: 72px;
+                top: 20px;
+                left: 48px;
+            }
+
+            a.link-to-addimage:hover {
+                box-shadow: 0 0 6px 3px #666666;
+                border-radius: 4px;
+            }
+
+            a.link-to-addlist-budget {
+                display: block;
+                position: absolute;
+                width: 73px;
+                height: 21px;
+                top: 34px;
+                left: 5px;
+            }
+
+            a.link-to-addlist-budget:hover {
+                box-shadow: 0 0 6px 3px #666666;
+                border-radius: 4px;
+            }
+
+            a.link-to-social {
+                display: block;
+                position: absolute;
+                width: 112px;
+                height: 42px;
+                bottom: 0;
+                left: 565px;
+            }
+
+            a.link-to-other-parisplan {
+                display: block;
+                position: absolute;
+                width: 358px;
+                height: 198px;
+                top: 181px;
+                left: 457px;
+            }
+
+            a.link-to-other-parisplan:hover {
+                box-shadow: 0 0 6px 3px #000000;
+                border-radius: 6px;
+            }
+
+            a.check-whattosee-list {
+                display: block;
+                position: absolute;
+                width: 242px;
+                height: 202px;
+                top: 175px;
+                left: 178px;
+            }
+
+            a.check-whattosee-list:hover {
+                box-shadow: 0 0 6px 3px #666666;
+            }
+
+            ul {
+                list-style-type: none;
+                display: inline-block;
+                margin: 1em 0;
+            }
+
+            li {
+                display: inline-block;
+                padding: 0 1em;
+                border-right: 1px solid #666666;
+
+            }
+
+            li:last-child {
+                border-right: 1px solid transparent;
+            }
+
+            header {
+                position: relative;
+                margin: 0;
+                border-bottom: 1px solid #666666;
+            }
+
+            .dash {
+                position: relative;
+                height: 720px;
+                width: 1280px;
+                background-image: url('Protokuvat/StudioXproto_dash.png');
+                background-repeat: no-repeat;
+                background-position: 0 -80px;
+            }
+
+            .planvas {
+                position: relative;
+                height: 720px;
+                width: 1280px;
+                background-image: url('Protokuvat/StudioXproto.png');
+                background-repeat: no-repeat;
+                background-position: 0 -80px;   
+                display: none;
+            }
+
+            .socialvas {
+                position: relative;
+                height: 720px;
+                width: 1280px;
+                background-image: url('Protokuvat/Palasina/browse_window.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                display: none;
+            }
+
+            .otherplan {
+                position: relative;
+                height: 720px;
+                width: 1280px;
+                background-image: url('Protokuvat/Palasina/whatToSeeInParis_planvas.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                display: none;
+            }
+
+            .image-upload-window {
+                position: relative;
+                background-image: url('Protokuvat/Palasina/imageUploadWindow.png');
+                width: 801px;
+                height: 440px;
+                margin: 0 auto;
+                top: 9em;
+                display: none;
+            }
+
+            .btn-to-upload {
+                position: relative;
+                background-image: url('Protokuvat/Palasina/chooseAnImageToUpload.png');
+                width: 232px;
+                height: 27px;
+                margin: 0 auto;
+                top: 200px;
+            }
+
+            .btn-to-image-select-enabled {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/selectButtonEnabled.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: white;
+                border-radius: 6px;
+                width: 74px;
+                height: 27px;
+                bottom: 37px;
+                right: 69px;
+                display: none;
+            }
+
+            .btn-to-image-select-disabled {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/selectButtonDisabled.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: white;
+                border-radius: 6px;
+                width: 74px;
+                height: 27px;
+                bottom: 37px;
+                right: 69px;
+            }
+
+            .btn-to-borrow-and-go-back-enabled {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/moveToYourCurrent_enabled.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: white;
+                border-radius: 6px;
+                width: 240px;
+                height: 30px;
+                bottom: 24px;
+                right: 101px;
+                display: none;
+            }
+
+            .btn-to-borrow-and-go-back-disabled {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/moveToYourCurrent_disabled.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: white;
+                border-radius: 6px;
+                width: 240px;
+                height: 30px;
+                bottom: 24px;
+                right: 101px;
+            }
+
+            .addlist-submenu {
+                position: absolute;
+                display: none;
+                height: 95px;
+                width: 84px;
+                top: 100px;
+                left: 168px;
+                background-image: url('Protokuvat/Palasina/Listalista.png');
+            }
+
+            .img-eiffel-small {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/eiffel_small.png');
+                display: none;
+                height: 173px;
+                width: 131px;
+                top: 140px;
+                left: 130px;
+            }
+
+            .img-eiffel-big {
+                position: relative;
+                background-image: url('Protokuvat/Palasina/eiffel_big.png');
+                display: none;
+                height: 367px;
+                width: 278px;
+                margin: 0 auto;
+                top: 270px;
+            }
+
+            .budget {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/Budjetti.png');
+                display: none;
+                width: 246px;
+                height: 251px;
+                top: 250px;
+                left: 100px;
+            }
+
+            .whattosee {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/whatToSeeInParis.png');
+                display: none;
+                width: 272px;
+                height: 227px;
+                top: 250px;
+                right: 100px;   
+            }
+
+            .borrow-checkbox {
+                position: absolute;
+                background-image: url('Protokuvat/Palasina/checkbox.png');
+                display: none;
+                width: 29px;
+                height: 29px;
+                top: 164px;
+                left: 400px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <header>
+            <a href="#" class="service-logo"></a>
+            <ul class="navigation-list">
+                <li><a class="nav nav-home" href="#">Home</a></li>
+                <li><a class="nav nav-plan" href="#">Plan</a></li>
+                <li><a class="nav" href="#">Browse</a></li>
+            </ul>
+            <a class="user-icon"></a>
+        </header>
+        <section class="content">
+            <div class="dash">
+                <a href="#paris" class="link-to-plan"></a>
+            </div>
+
+            <div class="planvas">
+                <div class="budget"></div>
+                <div class="img-eiffel-big"></div>
+                <div class="whattosee"></div>
+                <div class="image-upload-window">
+                    <div class="img-eiffel-small"></div>
+                    <div class="btn-to-upload"></div>
+                    <div class="btn-to-image-select-enabled"></div>
+                    <div class="btn-to-image-select-disabled"></div>
+                </div>
+                <a href="#paris/addimage" class="link-to-addimage"></a>
+                <a href="#paris/addlist" class="link-to-addlist"></a>
+                <div class="addlist-submenu">
+                    <a href="#paris/addlist/budget" class="link-to-addlist-budget"></a>
+                </div>
+                <a href="#paris/social" class="link-to-social"></a>
+            </div>
+
+            <div class="socialvas">
+                <a href="#paris/otherplan" class="link-to-other-parisplan"></a>
+            </div>
+
+            <div class="otherplan">
+                <a href="#paris/otherplan" class="check-whattosee-list"></a>
+                <div class="borrow-checkbox"></div>
+                <div class="btn-to-borrow-and-go-back-enabled"></div>
+                <div class="btn-to-borrow-and-go-back-disabled"></div>
+            </div>
+            
+        </section>
+
+        <script src="jquery.js"></script>
+        <script type="text/javascript">
+            (function() {
+                $ || console.log('jquery not loaded');
+                var dash = $('.dash'),
+                    planvas = $('.planvas'),
+                    socialvas = $('.socialvas'),
+                    otherplan = $('.otherplan');
+
+                $('.link-to-plan, .nav-plan').on('click', function(ev) {
+                    dash.hide();
+                    planvas.show();
+                });
+
+                $('.nav-home').on('click', function() {
+                    planvas.hide();
+                    dash.show();
+                });
+
+                $('.link-to-addimage').on('click', function() {
+                    $('.image-upload-window').show();
+                });
+
+                $('.btn-to-upload').on('click', function() {
+                    $('.btn-to-upload').hide();
+                    $('.img-eiffel-small').show();
+                    $('.btn-to-image-select-disabled').hide();
+                    $('.btn-to-image-select-enabled').show();
+                });
+
+                $('.btn-to-image-select-enabled').on('click', function() {
+                    $('.image-upload-window').hide();
+                    $('.img-eiffel-big').show();
+                });
+
+                $('.link-to-addlist').on('click', function() {
+                    $('.addlist-submenu').toggle();
+                });
+
+                $('.link-to-addlist-budget').on('click', function() {
+                    $('.addlist-submenu').hide();
+                    $('.budget').show();
+                });
+
+                $('.link-to-social').on('click', function() {
+                    dash.hide();
+                    planvas.slideUp();
+                    socialvas.show();
+                });
+
+                $('.link-to-other-parisplan').on('click', function() {
+                    dash.hide();
+                    planvas.hide();
+                    socialvas.hide();
+                    otherplan.show();
+                });
+
+                $('.check-whattosee-list').on('click', function() {
+                    $('.borrow-checkbox').show();
+                    $('.btn-to-borrow-and-go-back-disabled').hide();
+                    $('.btn-to-borrow-and-go-back-enabled').show();
+                });
+
+                $('.btn-to-borrow-and-go-back-enabled').on('click', function() {
+                    planvas.slideDown();
+                    $('.whattosee').show();
+                    socialvas.hide();
+                    otherplan.hide();
+                });
+            })();
+        </script>
+</body>
+</html>
